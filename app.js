@@ -23,6 +23,10 @@ app.post('/nic', (req, res)=>{
 
 });
 
+app.get('/health', (req,res) => {
+    res.status(200).end();
+});
+
 app.listen(defaultPort, () => {
     
 });
