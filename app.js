@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.json());
 
+var defaultPort = 45678;
 var count = 0;
 
 app.post('/nic', (req, res)=>{
@@ -22,6 +23,6 @@ app.post('/nic', (req, res)=>{
 
 });
 
-app.listen(8080, () => {
+app.listen(defaultPort, () => {
     
 });
