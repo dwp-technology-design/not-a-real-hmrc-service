@@ -1,0 +1,17 @@
+# vim:ft=ansible:
+---
+- block:
+  - name: Clone the service
+    git:
+        repo: https://github.com/dwp-technology-design/not-a-real-hmrc-service.git
+        dest: /opt/not-a-real-hmrc-service
+  - name: Install dependencies
+    command: make package
+    args:
+     chdir: /opt/not-a-real-hmrc-service
+  - name: Copy the systemd manifest
+    copy: src=not-a-real-hmrc-service.service dest=/etc/systemd/system/not-a-real-hmrc-service.service 
+  - name: Enable the Service
+    command: systemctl enable not-a-real-hmrc-service.service
+  become: yes
+  become_method: sudo

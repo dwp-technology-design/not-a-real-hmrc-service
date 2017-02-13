@@ -23,7 +23,7 @@ app.post('/nic', (req, res)=>{
 
 });
 
-app.get('/health', (req,res) => {
+app.get('/meta/health', (req,res) => {
     res.status(200).end();
 });
 

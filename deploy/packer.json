@@ -1,0 +1,27 @@
+{
+  "provisioners": [
+    {
+        "type": "shell",
+        "inline": [
+            "sudo apt-get update",
+            "sudo apt-get -y install python-minimal",
+            "sudo apt-get autoremove"
+        ]
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "ansible/playbook.yml"
+    }
+  ],
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-west-2",
+      "source_ami": "ami-a41eaec4",
+      "instance_type": "t2.micro",
+      "ssh_username": "ubuntu",
+      "ami_name": "not-a-real-hmrc-service {{timestamp}}"
+    }
+  ],
+  "post-processors": []
+}
