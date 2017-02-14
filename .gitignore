@@ -57,3 +57,4 @@ typings/
 
 *.swp
 *.zip
+terraform.tfstate.backup
