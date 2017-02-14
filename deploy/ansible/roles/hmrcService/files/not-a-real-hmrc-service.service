@@ -3,7 +3,7 @@ Description=Not a real HMRC Service for Fake Expat Benefit Service
 #Requires=After=mysql.service       # Requires the mysql service to run first
 
 [Service]
-ExecStart=/usr/bin/node /opt/not-a-real-hmrc-service/app.js -c /opt/not-a-real-hmrc-service/config/prod.json
+ExecStart=/usr/bin/node /opt/not-a-real-hmrc-service/app.js
 #WorkingDirectory=/opt/nodeserver   # Required on some systems
 Restart=always
 RestartSec=10                       # Restart service after 10 seconds if node service crashes
