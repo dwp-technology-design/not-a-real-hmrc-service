@@ -1,10 +1,13 @@
 var express = require('express');
+var fs = require('fs');
+var http = require('http');
 var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.json());
 
 var defaultSocket = "/var/run/narhs/narhs.socket";
 var count = 0;
+var server = http.CreateServer(app);
 
 app.post('/nic', (req, res)=>{
 
@@ -27,10 +30,10 @@ app.get('/meta/health', (req,res) => {
     res.status(200).end();
 });
 
-app.server.on('listening', () => {
+server.on('listening', () => {
     fs.chmodSync(defaultSocket, '777');
 });
 
-app.listen(defaultSocket, () => {
+server.listen(defaultSocket, () => {
     
 });
