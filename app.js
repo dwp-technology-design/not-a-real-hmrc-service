@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 
 var defaultSocket = "/var/run/narhs/narhs.socket";
 var count = 0;
-var server = http.CreateServer(app);
+var server = http.createServer(app);
 
 app.post('/nic', (req, res)=>{
 
