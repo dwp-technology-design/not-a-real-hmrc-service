@@ -4,4 +4,5 @@
     languages:
   roles:
   - nodejs
+  - nginx
   - hmrcService

@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.json());
 
-var defaultPort = 80;
+var defaultSocket = "/var/run/narhs/narhs.socket";
 var count = 0;
 
 app.post('/nic', (req, res)=>{
@@ -27,6 +27,10 @@ app.get('/meta/health', (req,res) => {
     res.status(200).end();
 });
 
-app.listen(defaultPort, () => {
+app.server.on('listening', () => {
+    fs.chmodSync(defaultSocket, '777');
+});
+
+app.listen(defaultSocket, () => {
     
 });
